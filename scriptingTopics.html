@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation Viewer</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    #container {
+        display: flex;
+        height: 100vh;
+    }
+    
+    #menu {
+        width: 20%;
+        background: linear-gradient(to right, #4CAF50, #2196F3);
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    
+    #documentation {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #91c404, #8a4a0f);
+    color: white;
+    overflow-y: auto; 
+}
+
+#documentation h2 {
+    color: white;
+}
+
+#documentation p {
+    color: white;
+}
+    
+    .topic {
+        cursor: pointer;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .topic:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .selected {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <div id="menu">
+        <div class="topic" onclick="showDocumentation('bash')">Bash Script</div>
+        <div class="topic" onclick="showDocumentation('html')">HTML</div>
+        <div class="topic" onclick="showDocumentation('css')">CSS</div>
+        <div class="topic" onclick="showDocumentation('javascript')">JavaScript</div>
+        <div class="topic" onclick="showDocumentation('php')">PHP</div>
+    </div>
+    <div id="documentation">
+        <h2>Welcome to Documentation Viewer</h2>
+        <p>Select a topic from the menu to view its documentation.</p>
+    </div>
+</div>
+
+<script>
+    function showDocumentation(topic) {
+        const documentationDiv = document.getElementById('documentation');
+        const topics = {
+            'bash': `Bash Scripting is a scripting language primarily used in Unix-based operating systems for automating tasks and managing system configurations. It is a command language interpreter that executes commands read from a command line or a script file. Bash scripts are composed of a series of commands and constructs that automate repetitive tasks, ranging from simple file operations to complex system administration tasks.
+
+            Bash scripting offers several key features:
+            
+            Automation: Bash scripts automate routine tasks, reducing manual effort and ensuring consistency in system operations. Tasks such as file management, system configuration, and log parsing can be automated using Bash scripts, enhancing productivity for system administrators and developers.
+            
+            System Administration: Bash scripts are commonly used for system administration tasks such as user management, backup and restoration, and software installation. System administrators rely on Bash scripting to streamline administrative processes and maintain system integrity.
+            
+            Shell Commands: Bash scripting leverages a wide range of shell commands for performing various operations, including file manipulation, text processing, and process management. By combining these commands with control structures such as loops and conditional statements, Bash scripts can accomplish complex tasks efficiently.
+            
+            Customization: Bash scripts can be customized to suit specific requirements, allowing developers to create tailored solutions for diverse use cases. Variables, functions, and command-line arguments enable flexibility and parameterization, making Bash scripts adaptable to different environments and scenarios.
+            
+            Interactivity: Bash scripts can interact with users through input/output mechanisms, enabling interactive command-line interfaces (CLIs) and menu-driven applications. Users can provide input to Bash scripts through prompts or command-line arguments, facilitating user interaction and customization.
+            
+            Overall, Bash scripting is a versatile tool for automating system tasks, managing configurations, and enhancing productivity in Unix-based environments. Its rich set of features, combined with the extensive ecosystem of shell commands and utilities, makes it indispensable for system administrators, developers, and power users alike.`,
+            'html': `HTML, short for Hypertext Markup Language, is the standard markup language used to create and structure web pages. It defines the structure and content of a webpage using a system of tags and attributes, allowing web browsers to interpret and display the content properly. HTML documents consist of a hierarchy of elements, including headings, paragraphs, lists, links, images, forms, and more.
+
+Key features of HTML include:
+
+Semantics: HTML provides semantic markup for structuring content, enabling web browsers and assistive technologies to interpret the meaning of each element. Semantic HTML elements such as &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, and &lt;footer&gt; enhance accessibility, search engine optimization (SEO), and content organization.
+
+Hyperlinks: HTML allows the creation of hyperlinks using the &lt;a&gt; element, enabling navigation between web pages and resources. Hyperlinks can point to different destinations, including other web pages, files, email addresses, and anchors within the same page.
+
+Multimedia Embedding: HTML supports embedding multimedia content such as images, videos, and audio files using elements like &lt;img&gt;, &lt;video&gt;, and &lt;audio&gt;. These elements allow web developers to integrate rich media seamlessly into web pages, enhancing user engagement and interaction.
+
+Forms: HTML provides form elements such as &lt;form&gt;, &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, and &lt;button&gt; for creating interactive forms on web pages. Forms enable users to submit data to web servers, facilitating user input, data collection, and interaction with web applications.
+
+Accessibility: HTML features accessibility attributes and techniques for creating accessible web content that is usable by people with disabilities. Accessible HTML markup, semantic elements, and ARIA (Accessible Rich Internet Applications) roles enhance the accessibility of web pages, ensuring inclusivity and compliance with accessibility standards.
+
+Overall, HTML is the foundation of web development, providing the structure, semantics, and interactivity necessary for creating engaging and accessible web experiences. Its versatility, simplicity, and widespread adoption make it an essential skill for web developers and designers worldwide.`,
+'css':`CSS, short for Cascading Style Sheets, is a style sheet language used to describe the presentation and appearance of HTML documents. It allows web developers to control the layout, styling, and visual presentation of web pages, enabling consistency, responsiveness, and aesthetics across different devices and screen sizes.
+
+Key features of CSS include:
+
+Styling Properties: CSS provides a wide range of styling properties and values for customizing the appearance of HTML elements. Properties such as color, font-size, margin, padding, border, background, and text-align enable precise control over typography, colors, spacing, borders, backgrounds, and alignment.
+
+Selectors and Rulesets: CSS uses selectors to target specific HTML elements and apply styling rules. Selectors can target elements based on their type, class, ID, attributes, relationships, and pseudo-classes, allowing fine-grained control over styling. Rulesets consist of one or more declarations that define the styling properties and values to be applied to selected elements.
+
+Box Model: CSS employs the box model to represent the layout and dimensions of HTML elements. The box model comprises content, padding, border, and margin, each of which contributes to the overall size and spacing of an element. Understanding the box model is essential for creating well-designed layouts and ensuring consistent spacing and alignment.
+
+Flexbox and Grid Layout: CSS introduces flexible box (Flexbox) and grid layout systems for creating responsive and flexible page layouts. Flexbox allows developers to create complex layouts with a single-dimensional flexible row or column structure, while grid layout enables two-dimensional grid-based layouts with precise control over rows, columns, and alignment.
+
+Media Queries: CSS supports media queries for applying different styles based on device characteristics such as screen size, orientation, and resolution. Media queries enable responsive design, allowing web pages to adapt and optimize their layout and styling for various devices, including desktops, laptops, tablets, and smartphones.
+
+Overall, CSS is a powerful tool for enhancing the presentation and styling of web pages, enabling web developers to create visually appealing, responsive, and user-friendly interfaces. Its rich set of features, including styling properties, selectors, layout systems, and media queries, empower developers to design and customize web experiences that meet the needs and preferences of users across different platforms and devices.`,
+            'javascript': `JavaScript is a versatile programming language used for adding interactivity and dynamic behavior to web pages. It is primarily used as a client-side scripting language, running within the user's web browser and interacting with the Document Object Model (DOM) to manipulate webpage content and respond to user actions.
+
+Key features of JavaScript include:
+
+Client-Side Interactivity: JavaScript enables client-side interactivity by responding to user actions such as clicks, scrolls, mouse movements, keyboard inputs, and form submissions. Event-driven programming allows developers to attach event handlers to HTML elements and execute JavaScript code in response to events, enabling dynamic and interactive user experiences.
+
+DOM Manipulation: JavaScript interacts with the Document Object Model (DOM), representing the structure and content of HTML documents as a hierarchical tree of objects. DOM manipulation allows developers to dynamically modify webpage content, attributes, and styles, enabling real-time updates and interactions without page reloads.
+
+Asynchronous Programming: JavaScript supports asynchronous programming techniques such as callbacks, promises, and async/await for handling asynchronous`,
+            'php': `PHP is a server-side scripting language designed for web development. It is embedded within HTML documents and processed by a web server with a PHP processor module, generating dynamic web pages and content. PHP is widely used for creating interactive websites, web applications, and server-side scripting tasks.
+
+Key features of PHP include:
+
+Server-Side Processing: PHP executes on the server side, processing requests from clients and generating HTML content dynamically. This allows developers to create dynamic web pages that adapt to user input, database queries, and other server-side computations.
+
+Embedding: PHP code can be embedded directly within HTML documents, allowing developers to mix PHP logic with HTML markup seamlessly. PHP scripts are enclosed within <?php ?> tags, enabling dynamic content generation, database querying, and conditional logic within HTML templates.
+
+Database Integration: PHP integrates with various databases, including MySQL, PostgreSQL, SQLite, and MongoDB, allowing developers to query, insert, update, and delete data from databases dynamically. PHP's database functions and extensions facilitate database connectivity and interaction, enabling the development of data-driven web applications.
+
+Session Management: PHP provides built-in session management capabilities for maintaining user sessions and managing session data across multiple requests. Sessions enable developers to store user-specific information, such as login credentials, shopping cart contents, and preferences, ensuring a personalized and secure browsing experience.
+
+Server-Side Scripting: PHP is commonly used for server-side scripting tasks, such as file manipulation, directory operations, and server configuration. PHP's file handling functions, directory traversal functions, and server environment variables enable developers to perform server-side tasks efficiently and securely.
+
+Frameworks and Libraries: PHP boasts a rich ecosystem of frameworks and libraries that streamline the development process and provide reusable components, MVC (Model-View-Controller) architecture, and security features. Popular PHP frameworks include Laravel, Symfony, CodeIgniter, and Yii, offering developers a robust foundation for building scalable and maintainable web applications.
+
+Overall, PHP is a versatile and powerful server-side scripting language used for creating dynamic web pages, web applications, and server-side scripting tasks. Its seamless integration with HTML, database connectivity, session management, and extensive ecosystem of frameworks and libraries make it a popular choice for web developers seeking to build interactive and data-driven web experiences. With its simplicity, flexibility, and scalability, PHP continues to be a cornerstone of web development in the digital era.`
+        };
+        documentationDiv.innerHTML = '<h2>' + topic.toUpperCase() + ' Documentation</h2>' + '<p>' + topics[topic] + '</p>';
+        const topicElements = document.querySelectorAll('.topic');
+        topicElements.forEach(element => {
+            element.classList.remove('selected');
+        });
+        document.querySelector('.topic[data-topic="' + topic + '"]').classList.add('selected');
+    }
+</script>
+
+</body>
+</html>
